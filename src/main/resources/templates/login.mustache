@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html lang="uk">
+
+<head>
+    <title>Login page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+    <h1>Сторінка входу</h1>
+
+    <form action="/login" method="POST">
+        <div><label> User Name : <input type="text" name="username"/> </label></div>
+        <div><label> Password: <input type="password" name="password"/> </label></div>
+        <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
+        <div><input type="submit" value="Sign In"/></div>
+    </form>
+
+    <a href="/registration">Реєстрація</a>
+</body>
+
+</html>

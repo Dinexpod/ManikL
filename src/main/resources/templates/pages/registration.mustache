@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html lang="uk">
+
+<head>
+    <title>Registration page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+    <h1>Реєстрація</h1>
+    {{#message}}
+        {{message}}
+    {{/message}}
+    <form action="/registration" method="POST">
+        <div><label> User Name : <input type="text" name="username"/> </label></div>
+        <div><label> Password: <input type="password" name="password"/> </label></div>
+        <label><input type="text" name="sex" placeholder="стать"/></label>
+        <label><input type="text" name="age" placeholder="вік (років)"/></label>
+        <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
+        <div><input type="submit" value="Sign In"/></div>
+    </form>
+</body>
+
+</html>

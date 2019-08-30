@@ -1,6 +1,6 @@
-package com.dinexpod.manik;
+package com.dinexpod.manik.controller;
 
-import com.dinexpod.manik.entities.User;
+import com.dinexpod.manik.entity.User;
 import com.dinexpod.manik.repos.UserRep;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,26 +11,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.Map;
 
 @Controller
-public class GreetingController {
+public class MainController {
     @Autowired
     private UserRep userRep;
 
-    @GetMapping
+    @GetMapping("/")
     public String main(Map<String, Object> model) {
         model.put("name", "Гість");
         return "main";
     }
 
-    @GetMapping("/login")
-    public String login() {
-        return "pages/login";
-    }
-
-    @GetMapping("/signUp")
-    public String signUp() {
-        return "pages/signUp";
-    }
-
+//    @GetMapping("/login")
+//    public String login() {
+//        return "pages/login";
+//    }
 
     @GetMapping("/user")
     public String users(Map<String, Object> model) {
