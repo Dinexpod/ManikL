@@ -21,11 +21,6 @@ public class MainController {
         return "main";
     }
 
-//    @GetMapping("/login")
-//    public String login() {
-//        return "pages/login";
-//    }
-
     @GetMapping("/user")
     public String users(Map<String, Object> model) {
         Iterable<User> users = userRep.findAll();
@@ -34,11 +29,11 @@ public class MainController {
     }
 
     @PostMapping("/user")
-    public String add(@RequestParam String login,
+    public String add(@RequestParam String username,
                       @RequestParam String sex,
                       @RequestParam Integer age,
                       Map<String, Object> model) {
-        User user = new User(login, age, sex);
+        User user = new User(username, age, sex);
         userRep.save(user);
 
         Iterable<User> users = userRep.findAll();
@@ -46,11 +41,4 @@ public class MainController {
 
         return "pages/user";
     }
-
-//    @GetMapping("/user")
-//    public String signUp(@RequestParam(name = "name", required = false, defaultValue = "World")
-//                                 String name, Map<String, Object> model) {
-//        model.put("users", name);
-//        return "login";
-//    }
 }

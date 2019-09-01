@@ -7,10 +7,14 @@
 </head>
 
 <body>
+<button type="button" name="back" onclick="history.back()">назад</button>
+
+<a href="/">На головну</a>
+
 <form method="POST">
-    <label><input type="text" name="username" placeholder="Введіть логін юзера:"/></label>
-    <label><input type="text" name="sex" placeholder="Введіть стать юзера:"/></label>
-    <label><input type="text" name="age" placeholder="Введіть вік юзера:"/></label>
+    <label><input type="text" name="username" placeholder="Введіть логін юзера:" required/></label>
+    <label><input type="text" name="sex" placeholder="Введіть стать юзера:" required/></label>
+    <label><input type="text" name="age" placeholder="Введіть вік юзера:" required/></label>
     <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
     <button type="submit">Додати</button>
 </form>
