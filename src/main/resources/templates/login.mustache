@@ -2,21 +2,27 @@
 <html lang="uk">
 
 <head>
+    <meta charset="UTF-8">
     <title>Login page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/static/style/css/style.css"/>
 </head>
 
 <body>
-    <h1>Сторінка входу</h1>
+<a href="/">На головну</a>
 
-    <form action="/login" method="POST">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
-        <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
-        <div><input type="submit" value="Sign In"/></div>
-    </form>
+<div id="login-form">
+    <h1>АВТОРИЗАЦІЯ</h1>
+    <fieldset>
+        <form action="/login" method="POST">
+            <label><input type="text" name="username" placeholder="Юзернейм" required/></label>
+            <label><input type="password" name="password" placeholder="Пароль" required/></label>
+            <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
+            <input type="submit" value="Ввійти"/>
+        </form>
 
-    <a href="/registration">Реєстрація</a>
+        <br/><a href="/registration">Реєстрація</a>
+    </fieldset>
+</div>
 </body>
 
 </html>
