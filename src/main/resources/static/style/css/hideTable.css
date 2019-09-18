@@ -1,0 +1,25 @@
+table {
+    border: 1px solid #0200cc;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif, serif;
+    font-size: 14px;
+    border-collapse: separate;
+    text-align: center;
+    empty-cells: hide;
+}
+
+th, td:first-child {
+    background: #2679e7;
+    color: #ffffff;
+}
+
+th, td {
+    border: 2px solid #8207cc;
+}
+
+td {
+    background: #c3ffc2;
+}
+
+th:first-child, td:first-child {
+    text-align: left;
+}

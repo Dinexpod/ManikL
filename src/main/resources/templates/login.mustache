@@ -8,7 +8,11 @@
 </head>
 
 <body>
-<a href="/">На головну</a>
+<div class="top">
+    <span class="left"><a href="#"><strong  onclick="history.back()">назад</strong></a></span>
+    <span class="right"><a href="/"><strong>На головну</strong></a></span>
+    <div class="clr"></div>
+</div>
 
 <div id="login-form">
     <h1>АВТОРИЗАЦІЯ</h1>
@@ -20,7 +24,7 @@
             <input type="submit" value="Ввійти"/>
         </form>
 
-        <br/><a href="/registration">Реєстрація</a>
+        <a href="/registration"><input type="button" value="Не зареєстровані? Зареєструйтесь!"/></a>
     </fieldset>
 </div>
 </body>
