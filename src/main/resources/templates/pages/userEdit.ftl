@@ -4,11 +4,15 @@
 <head>
     <title>User editor</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="/static/style/css/table.css"/>
 </head>
 
 <body>
-<button type="button" name="back" onclick="history.back()">назад</button>
-<a href="/">На головну</a>
+<div class="top">
+    <span class="left"><a href="#"><strong  onclick="history.back()">назад</strong></a></span>
+    <span class="right"><a href="/"><strong>На головну</strong></a></span>
+    <div class="clr"></div>
+</div>
 
 <h1>Редагування юзера</h1>
 

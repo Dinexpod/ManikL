@@ -10,9 +10,8 @@ html {
 
 body {
 	color: #ff8b3d;
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 	font-size: 16px;
-
 }
 
 #login-form {
@@ -26,7 +25,6 @@ body {
 	font-size: 16px;
   -webkit-box-shadow:  0px 10px 20px 0px rgba(0, 0, 0, 0.3);
    box-shadow:  0px 10px 20px 0px rgba(0, 0, 0, 0.3);
-  
 }
 
 #login-form h1 {
@@ -48,7 +46,6 @@ body {
 	position: relative;
 }
 
-
 #login-form fieldset form {
 	overflow: hidden;
 	width: 270px;
@@ -62,8 +59,6 @@ body {
   width: 260px;
   align: center;
   position: center;
-  
-
 }
 
 #login-form fieldset form input[type="email"] {
@@ -116,6 +111,25 @@ body {
 	background-color: #e0e0e0;
 }
 
+#login-form fieldset input[type="button"] {
+    background-color: #ebebeb;
+    border: none;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    color: #404040;
+    cursor: pointer;
+    float: none;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 12px 12px;
+    -webkit-appearance: none;
+}
+
+#login-form fieldset input[type="button"]:hover {
+    background-color: #e0e0e0;
+}
+
 #login-form fieldset form span:before {
 	background-color: #c9c9c9;
 	border-radius: 50%;
@@ -165,7 +179,7 @@ body {
 	100%{top:0px; opacity: 1;}
 }
 
-.vladmaxi-top a{
+.top a{
 	padding: 0px 10px;
 	letter-spacing: 1px;
 	color: #333;
@@ -174,13 +188,25 @@ body {
 	float: left;
 	text-decoration:none;
 }
-.vladmaxi-top a:hover{
+
+.top a:hover{
 	background: #fff;
 }
-.vladmaxi-top span.right{
+
+.top span.right{
 	float: right;
 }
-.vladmaxi-top span.right a{
+
+.top span.right a{
 	float: left;
 	display: block;
+}
+
+.top span.left{
+    float: left;
+}
+
+.top span.left a{
+    float: left;
+    display: block;
 }
