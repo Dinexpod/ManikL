@@ -66,7 +66,7 @@ public class MainController {
         }
 
         Meet newMeet = new Meet(client, (hour + ":" + minute));
-        List<Meet> meets = meetRep.findAllByClient(client).stream().map(MeetDTO::toDTO).collect(Collectors.toList());
+        List<Meet> meets = meetRep.findAllByClientAndDay(client, day).stream().map(MeetDTO::toDTO).collect(Collectors.toList());
 
         if (meets.contains(newMeet)) {
             newMeet = null;
