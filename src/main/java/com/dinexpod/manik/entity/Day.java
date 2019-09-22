@@ -72,4 +72,27 @@ public class Day implements Comparable<Day> {
             return 0;
         }
     }
+
+    public String addOccupation(int startIndexTime, int countTimeIndexes) {
+        boolean status = true;
+
+        for (int i = startIndexTime; i < startIndexTime + countTimeIndexes; i++) {
+            if (occupation.get(i)) {
+                status = false;
+                break;
+            }
+        }
+
+        if (status) {
+            for (int i = startIndexTime; i < startIndexTime + countTimeIndexes; i++) {
+                if (!occupation.get(i)) {
+                    occupation.set(i, true);
+                }
+            }
+        } else {
+            return "Вам недостаточно времени, проверьте еще раз время";
+        }
+
+        return "Запись осуществлена! Мастер вам позвонит для уточнения";
+    }
 }

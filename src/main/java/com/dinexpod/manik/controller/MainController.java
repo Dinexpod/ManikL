@@ -1,5 +1,6 @@
 package com.dinexpod.manik.controller;
 
+import com.dinexpod.manik.Utils;
 import com.dinexpod.manik.dto.MeetDTO;
 import com.dinexpod.manik.entity.Day;
 import com.dinexpod.manik.entity.Meet;
@@ -46,8 +47,11 @@ public class MainController {
                           @RequestParam String date,
                           @RequestParam Integer hour,
                           @RequestParam Integer minute,
+                          @RequestParam String mainService,
+                          @RequestParam String dopService,
                           Map<String, Object> model) {
 
+        String recordStatus = "";
         User master = userRep.findByUsername(masterUsername);
         String clientUsername;
 
@@ -78,7 +82,7 @@ public class MainController {
             meetRep.save(newMeet);
             day.addOneMeet(newMeet);
             day.setMaster(master);
-            day.getOccupation().set(getTransHour(hour, minute), true);
+            recordStatus = day.addOccupation(Utils.getTransHour(hour, minute), Utils.getServiceTime(mainService, dopService));
             dayRep.save(day);
         }
 
@@ -89,6 +93,7 @@ public class MainController {
 
         SortedSet<Day> setDays = new TreeSet<>(dayRep.findAll());
         model.put("days", setDays);
+        model.put("recordStatus", recordStatus);
         return "pages/recorder";
     }
 
@@ -117,56 +122,5 @@ public class MainController {
         model.put("users", users);
 
         return "pages/user";
-    }
-
-    private int getTransHour(Integer hour, Integer minute) {
-        switch (hour + minute) {
-            case 10:
-                return 0;
-            case 40:
-                return 1;
-            case 11:
-                return 2;
-            case 41:
-                return 3;
-            case 12:
-                return 4;
-            case 42:
-                return 5;
-            case 13:
-                return 6;
-            case 43:
-                return 7;
-            case 14:
-                return 8;
-            case 44:
-                return 9;
-            case 15:
-                return 10;
-            case 45:
-                return 11;
-            case 16:
-                return 12;
-            case 46:
-                return 13;
-            case 17:
-                return 14;
-            case 47:
-                return 15;
-            case 18:
-                return 16;
-            case 48:
-                return 17;
-            case 19:
-                return 18;
-            case 49:
-                return 19;
-            case 20:
-                return 20;
-            case 50:
-                return 21;
-        }
-
-        return 100;
     }
 }
