@@ -35,9 +35,9 @@ public class MainController {
 
     @GetMapping("/recorder")
     public String recorder(Map<String, Object> model) {
-        Iterable<Day> days = dayRep.findAll();
+        SortedSet<Day> setDays = new TreeSet<>(dayRep.findAll());
 
-        model.put("days", days);
+        model.put("days", setDays);
         return "pages/recorder";
     }
 
