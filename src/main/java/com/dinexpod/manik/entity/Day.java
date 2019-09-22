@@ -65,9 +65,9 @@ public class Day implements Comparable<Day> {
         LocalDate dateString = LocalDate.parse(o.dateString, formatter);
 
         if (dateString.isAfter(thisDateString)) {
-            return 1;
-        } else if (dateString.isBefore(thisDateString)) {
             return -1;
+        } else if (dateString.isBefore(thisDateString)) {
+            return 1;
         } else {
             return 0;
         }
