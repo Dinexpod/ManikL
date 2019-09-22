@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 @Controller
@@ -61,6 +63,7 @@ public class MainController {
 
         if (day == null) {
             day = new Day(date);
+            dayRep.save(day);
         } else {
             day = dayRep.findByDateString(date);
         }
@@ -84,8 +87,8 @@ public class MainController {
             meetRep.save(newMeet);
         }
 
-        Iterable<Day> days = dayRep.findAll();
-        model.put("days", days);
+        SortedSet<Day> setDays = new TreeSet<>(dayRep.findAll());
+        model.put("days", setDays);
         return "pages/recorder";
     }
 
