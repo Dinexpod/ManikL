@@ -51,7 +51,7 @@ public class MainController {
                           @RequestParam String dopService,
                           Map<String, Object> model) {
 
-        String recordStatus = "";
+        String meetEndTime = "";
         User master = userRep.findByUsername(masterUsername);
         String clientUsername;
 
@@ -79,10 +79,12 @@ public class MainController {
             newMeet = null;
             model.put("message", "на єто время уже ктото записан");
         } else {
+            meetEndTime = day.addOccupationAndReturnEndTime(Utils.getTransHour(hour, minute),
+                    Utils.getServiceTime(mainService, dopService));
+            newMeet.setEndMeet(meetEndTime);
             meetRep.save(newMeet);
             day.addOneMeet(newMeet);
             day.setMaster(master);
-            recordStatus = day.addOccupation(Utils.getTransHour(hour, minute), Utils.getServiceTime(mainService, dopService));
             dayRep.save(day);
         }
 
@@ -91,9 +93,14 @@ public class MainController {
             meetRep.save(newMeet);
         }
 
+        if (meetEndTime.length() > 1) {
+            model.put("recordStatus", "запись успешна!");
+        } else {
+            model.put("recordStatus", "это время занято");
+        }
+
         SortedSet<Day> setDays = new TreeSet<>(dayRep.findAll());
         model.put("days", setDays);
-        model.put("recordStatus", recordStatus);
         return "pages/recorder";
     }
 
