@@ -58,83 +58,84 @@
         <span>Выберите основную услугу:</span>
         <ol>
             <li>
-                <input type="radio" name="mainService" id="no" value="no"/>
+                <input type="radio" name="mainService" id="no" value="no" required/>
                 <label for="no">нет</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="snyatie" value="snyatie"/>
+                <input type="radio" name="mainService" id="snyatie" value="snyatie" required/>
                 <label for="snyatie">снятие</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="snyatie_gelya" value="snyatie_gelya"/>
+                <input type="radio" name="mainService" id="snyatie_gelya" value="snyatie_gelya" required/>
                 <label for="snyatie_gelya">снятие геля</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="classMan" value="classMan"/>
+                <input type="radio" name="mainService" id="classMan" value="classMan" required/>
                 <label for="classMan">классический маникюр</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="combMan" value="combMan"/>
+                <input type="radio" name="mainService" id="combMan" value="combMan" required/>
                 <label for="combMan">комбинированный маникюр</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="aparMan" value="aparMan"/>
+                <input type="radio" name="mainService" id="aparMan" value="aparMan" required/>
                 <label for="aparMan">аппаратный маникюр</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="manMan" value="manMan"/>
+                <input type="radio" name="mainService" id="manMan" value="manMan" required/>
                 <label for="manMan">мужской маникюр</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="classMan_pokr" value="classMan_pokr"/>
+                <input type="radio" name="mainService" id="classMan_pokr" value="classMan_pokr" required/>
                 <label for="classMan_pokr">классический маникюр + покрытие</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="combMan_pokr" value="combMan_pokr"/>
+                <input type="radio" name="mainService" id="combMan_pokr" value="combMan_pokr" required/>
                 <label for="combMan_pokr">комбинированный маникюр + покрытие</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="aparMan_pokr" value="aparMan_pokr"/>
+                <input type="radio" name="mainService" id="aparMan_pokr" value="aparMan_pokr" required/>
                 <label for="aparMan_pokr">аппаратный маникюр + покрытие</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="snyatie_classMan" value="snyatie_classMan"/>
+                <input type="radio" name="mainService" id="snyatie_classMan" value="snyatie_classMan" required/>
                 <label for="snyatie_classMan">снятие + классический маникюр</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="snyatie_combMan" value="snyatie_combMan"/>
+                <input type="radio" name="mainService" id="snyatie_combMan" value="snyatie_combMan" required/>
                 <label for="snyatie_combMan">снятие + комбинированный маникюр</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="snyatie_aparMan" value="snyatie_aparMan"/>
+                <input type="radio" name="mainService" id="snyatie_aparMan" value="snyatie_aparMan" required/>
                 <label for="snyatie_aparMan">снятие + аппаратный маникюр</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="snyatie_classMan_pokr" value="snyatie_classMan_pokr"/>
+                <input type="radio" name="mainService" id="snyatie_classMan_pokr" value="snyatie_classMan_pokr"
+                       required/>
                 <label for="snyatie_classMan_pokr">снятие + классический маникюр + покрытие</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="snyatie_combMan_pokr" value="snyatie_combMan_pokr"/>
+                <input type="radio" name="mainService" id="snyatie_combMan_pokr" value="snyatie_combMan_pokr" required/>
                 <label for="snyatie_combMan_pokr">снятие + комбинированный маникюр + покрытие</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="snyatie_aparMan_pokr" value="snyatie_aparMan_pokr"/>
+                <input type="radio" name="mainService" id="snyatie_aparMan_pokr" value="snyatie_aparMan_pokr" required/>
                 <label for="snyatie_aparMan_pokr">снятие + аппаратный маникюр + покрытие</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="pokr_gelLak" value="pokr_gelLak"/>
+                <input type="radio" name="mainService" id="pokr_gelLak" value="pokr_gelLak" required/>
                 <label for="pokr_gelLak">покрытие гель-лаком</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="narashch" value="narashch"/>
+                <input type="radio" name="mainService" id="narashch" value="narashch" required/>
                 <label for="narashch">наращивание ногтей</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="korrekts_gel" value="korrekts_gel"/>
+                <input type="radio" name="mainService" id="korrekts_gel" value="korrekts_gel" required/>
                 <label for="korrekts_gel">коррекция геля</label>
             </li>
             <li>
-                <input type="radio" name="mainService" id="manPed" value="manPed"/>
+                <input type="radio" name="mainService" id="manPed" value="manPed" required/>
                 <label for="manPed">мужской педикюр</label>
             </li>
         </ol>
@@ -142,6 +143,8 @@
 
     <section class="dopService">
         <span>Выберите дополнительные услуги:</span>
+
+        <input type="hidden" name="dopService" value=""/>
         <ol>
             <li>
                 <input type="checkbox" name="dopService" id="pokr_usualLak" value="pokr_usualLak"/>
@@ -174,7 +177,7 @@
         </ol>
     </section>
 
-    <label><input type="hidden" name="_csrf" value="${_csrf.token}"/></label>
+    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
     <button type="submit">Записаться!</button>
 </form>
 
@@ -215,7 +218,7 @@
     <tbody>
     <#list days as day>
         <tr>
-            <td>${day.dateString}</td>
+            <td>${day.dateString} (<#if day.dayOfWeekRu??>${day.dayOfWeekRu}</#if>)</td>
             <#list day.occupation as oc>
                 <td>
                     <#if oc??>

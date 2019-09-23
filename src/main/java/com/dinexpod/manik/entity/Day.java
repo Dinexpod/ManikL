@@ -1,5 +1,6 @@
 package com.dinexpod.manik.entity;
 
+import com.dinexpod.manik.Utils;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -35,6 +36,8 @@ public class Day implements Comparable<Day> {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String dateString;
+    private String dayOfWeekEng;
+    private String dayOfWeekRu;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "master_id")
@@ -52,6 +55,11 @@ public class Day implements Comparable<Day> {
 
     public Day(String dateString) {
         this.dateString = dateString;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate localDate = LocalDate.parse(dateString, formatter);
+        dayOfWeekEng = localDate.getDayOfWeek().name();
+        dayOfWeekRu = Utils.dayOfWeekFromEngToRus(dayOfWeekEng);
     }
 
     public void addOneMeet(Meet meet) {
@@ -73,8 +81,9 @@ public class Day implements Comparable<Day> {
         }
     }
 
-    public String addOccupation(int startIndexTime, int countTimeIndexes) {
+    public String addOccupationAndReturnEndTime(int startIndexTime, int countTimeIndexes) {
         boolean status = true;
+        int endTimeIndex = startIndexTime + countTimeIndexes - 1;
 
         for (int i = startIndexTime; i < startIndexTime + countTimeIndexes; i++) {
             if (occupation.get(i)) {
@@ -90,9 +99,9 @@ public class Day implements Comparable<Day> {
                 }
             }
         } else {
-            return "Вам недостаточно времени, проверьте еще раз время";
+            return "0";
         }
 
-        return "Запись осуществлена! Мастер вам позвонит для уточнения";
+        return Utils.getEndMeetTime(endTimeIndex);
     }
 }
