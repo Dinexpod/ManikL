@@ -70,7 +70,7 @@ public class Day implements Comparable<Day> {
     public int compareTo(Day o) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate thisDateString = LocalDate.parse(this.dateString, formatter);
-        LocalDate dateString = LocalDate.parse(o.dateString, formatter);
+        LocalDate dateString = LocalDate.parse(o.getDateString(), formatter);
 
         if (dateString.isAfter(thisDateString)) {
             return -1;
