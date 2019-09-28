@@ -23,6 +23,7 @@ public class Meet implements Comparable<Meet> {
     private Long id;
     private String startMeet;
     private String endMeet;
+    private String servicesList;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "client_id")
@@ -47,9 +48,9 @@ public class Meet implements Comparable<Meet> {
     @Override
     public int compareTo(Meet o) {
         if (Integer.parseInt(o.startMeet.substring(0, 2)) > Integer.parseInt(this.startMeet.substring(0, 2))) {
-            return 1;
-        } else if (Integer.parseInt(o.startMeet.substring(0, 2)) < Integer.parseInt(this.startMeet.substring(0, 2))) {
             return -1;
+        } else if (Integer.parseInt(o.startMeet.substring(0, 2)) < Integer.parseInt(this.startMeet.substring(0, 2))) {
+            return 1;
         } else {
             return Integer.compare(Integer.parseInt(o.startMeet.substring(3)),
                     Integer.parseInt(this.startMeet.substring(3)));

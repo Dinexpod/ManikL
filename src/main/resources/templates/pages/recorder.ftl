@@ -168,11 +168,11 @@
             </li>
             <li>
                 <input type="checkbox" name="dopService" id="remTwoNails" value="remTwoNails"/>
-                <label for="remTwoNails">ремонт 2 ногтя</label>
+                <label for="remTwoNails">ремонт 2 ногтей</label>
             </li>
             <li>
                 <input type="checkbox" name="dopService" id="remThreeNails" value="remThreeNails"/>
-                <label for="remThreeNails">ремонт 3 ногтя</label>
+                <label for="remThreeNails">ремонт 3 ногтей</label>
             </li>
         </ol>
     </section>

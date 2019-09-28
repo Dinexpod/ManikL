@@ -206,4 +206,104 @@ public class Utils {
                 return "-";
         }
     }
+
+    public static String parseServicesList(String mainService, String dopService) {
+        StringBuilder servicesList = new StringBuilder();
+
+        switch (mainService) {
+            case "no":
+                servicesList.append(" ");
+                break;
+            case "snyatie":
+                servicesList.append("снятие");
+                break;
+            case "snyatie_gelya":
+                servicesList.append("снятие геля");
+                break;
+            case "classMan":
+                servicesList.append("классический маникюр");
+                break;
+            case "combMan":
+                servicesList.append("комбинированный маникюр");
+                break;
+            case "aparMan":
+                servicesList.append("аппаратный маникюр");
+                break;
+            case "manMan":
+                servicesList.append("мужской маникюр");
+                break;
+            case "classMan_pokr":
+                servicesList.append("классический маникюр + покрытие");
+                break;
+            case "combMan_pokr":
+                servicesList.append("комбинированный маникюр + покрытие");
+                break;
+            case "aparMan_pokr":
+                servicesList.append("аппаратный маникюр + покрытие");
+                break;
+            case "snyatie_classMan":
+                servicesList.append("снятие + классический маникюр");
+                break;
+            case "snyatie_combMan":
+                servicesList.append("снятие + комбинированный маникюр");
+                break;
+            case "snyatie_aparMan":
+                servicesList.append("снятие + аппаратный маникюр");
+                break;
+            case "snyatie_classMan_pokr":
+                servicesList.append("снятие + классический маникюр + покрытие");
+                break;
+            case "snyatie_combMan_pokr":
+                servicesList.append("снятие + комбинированный маникюр + покрытие");
+                break;
+            case "snyatie_aparMan_pokr":
+                servicesList.append("снятие + аппаратный маникюр + покрытие");
+                break;
+            case "pokr_gelLak":
+                servicesList.append("покрытие гель-лаком");
+                break;
+            case "narashch":
+                servicesList.append("наращивание ногтей");
+                break;
+            case "korrekts_gel":
+                servicesList.append("коррекция геля");
+                break;
+            case "manPed":
+                servicesList.append("мужской педикюр");
+                break;
+            default:
+                servicesList.append("ОШИБКА");
+                break;
+        }
+
+        if (dopService.contains("pokr_usualLak")) {
+            servicesList.append(" + покрытие обычны/лечебным лаком");
+        }
+
+        if (dopService.contains("dezVsehNogt")) {
+            servicesList.append(" + дизайн всех ногтей");
+        }
+
+        if (dopService.contains("grad")) {
+            servicesList.append(" + градиент");
+        }
+
+        if (dopService.contains("ukrepNogtey")) {
+            servicesList.append(" + укрепление ногтей");
+        }
+
+        if (dopService.contains("remOneNail")) {
+            servicesList.append(" + ремонт 1 ногтя");
+        }
+
+        if (dopService.contains("remTwoNails")) {
+            servicesList.append(" + ремонт 2 ногтей");
+        }
+
+        if (dopService.contains("remThreeNails")) {
+            servicesList.append(" + ремонт 3 ногтей");
+        }
+
+        return servicesList.toString();
+    }
 }

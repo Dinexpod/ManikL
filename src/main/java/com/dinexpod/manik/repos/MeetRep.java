@@ -10,4 +10,8 @@ import java.util.List;
 public interface MeetRep extends JpaRepository<Meet, Long> {
 
     List<Meet> findAllByClientAndDay(User client, Day day);
+
+    List<Meet> findAllByClient(User client);
+
+    List<Meet> findAllByDay(Day day);
 }

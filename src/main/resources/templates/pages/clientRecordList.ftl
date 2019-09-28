@@ -2,7 +2,7 @@
 <html lang="uk">
 
 <head>
-    <title>Главная</title>
+    <title>Записи для клиента</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="/static/style/css/style.css"/>
 </head>
@@ -21,11 +21,38 @@
     <span><a href="/clientRecordList"><strong>Мои записи</strong></a></span>
 
     <form action="/logout" method="POST">
-        <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
+        <label><input type="hidden" name="_csrf" value="${_csrf.token}"/></label>
         <input type="submit" value="Вийти"/>
     </form>
     <div class="clr"></div>
 </div>
+
+<br/>
+<br/>
+
+<table>
+    <thead>
+    <tr>
+        <th>Начало</th>
+        <th>Конец</th>
+        <th>логин</th>
+        <th>номер телефона</th>
+        <th>услуга</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <#list meets as meet>
+        <tr>
+            <td>${meet.startMeet}</td>
+            <td>${meet.endMeet}</td>
+            <td>${meet.client.username}</td>
+            <td><#if meet.client.phoneNumber??>${meet.client.phoneNumber}</#if></td>
+            <td><#if meet.servicesList??>${meet.servicesList}</#if></td>
+        </tr>
+    </#list>
+    </tbody>
+</table>
 </body>
 
 </html>
