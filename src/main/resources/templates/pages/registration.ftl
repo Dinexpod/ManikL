@@ -17,9 +17,7 @@
 <div id="login-form">
     <h1>Реєстрація</h1>
 
-    {{#message}}
-        {{message}}
-    {{/message}}
+    <#if message??>${message}</#if>
 
     <fieldset>
         <form action="/registration" method="POST">
@@ -27,7 +25,7 @@
             <label><input type="password" name="password" placeholder="Пароль" min="10" required/> </label>
             <label><input type="text" name="sex" placeholder="Стать" required/></label>
             <label><input type="text" name="age" placeholder="Вік (років)" required/></label>
-            <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
+            <label><input type="hidden" name="_csrf" value="${_csrf.token}"/></label>
             <input type="submit" value="Зареєструватись"/>
         </form>
     </fieldset>

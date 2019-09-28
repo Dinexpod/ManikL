@@ -21,7 +21,7 @@
     <span><a href="/clientRecordList"><strong>Мои записи</strong></a></span>
 
     <form action="/logout" method="POST">
-        <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
+        <label><input type="hidden" name="_csrf" value="${_csrf.token}"/></label>
         <input type="submit" value="Вийти"/>
     </form>
     <div class="clr"></div>

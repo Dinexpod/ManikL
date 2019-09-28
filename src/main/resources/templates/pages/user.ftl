@@ -19,7 +19,7 @@
     <label><input type="text" name="username" placeholder="Введіть логін юзера:" required/></label>
     <label><input type="text" name="sex" placeholder="Введіть стать юзера:" required/></label>
     <label><input type="text" name="age" placeholder="Введіть вік юзера:" required/></label>
-    <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
+    <label><input type="hidden" name="_csrf" value="${_csrf.token}"/></label>
     <button type="submit">Додати</button>
 </form>
 
@@ -36,14 +36,14 @@
     </thead>
 
     <tbody>
-    {{#users}}
+    <#list users as user>
         <tr>
-            <td>{{id}}</td>
-            <td>{{username}}</td>
-            <td>{{sex}}</td>
-            <td>{{age}}</td>
+            <td>${user.id}</td>
+            <td>${user.username}</td>
+            <td>${user.sex}</td>
+            <td>${user.age}</td>
         </tr>
-    {{/users}}
+    </#list>
     </tbody>
 </table>
 </body>

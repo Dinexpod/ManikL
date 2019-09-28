@@ -20,7 +20,7 @@
         <form action="/login" method="POST">
             <label><input type="text" name="username" placeholder="Юзернейм" max="15" required/></label>
             <label><input type="password" name="password" placeholder="Пароль" required/></label>
-            <label><input type="hidden" name="_csrf" value="{{_csrf.token}}"/></label>
+            <label><input type="hidden" name="_csrf" value="${_csrf.token}"/></label>
             <input type="submit" value="Ввійти"/>
         </form>
 
