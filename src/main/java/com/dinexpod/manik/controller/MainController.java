@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedSet;
@@ -32,6 +33,64 @@ public class MainController {
         this.userRep = userRep;
         this.dayRep = dayRep;
         this.meetRep = meetRep;
+    }
+
+
+    @GetMapping("/clientRecordList")
+    public String clientRecordList(Map<String, Object> model) {
+        String clientUsername;
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (principal instanceof UserDetails) {
+            clientUsername = ((UserDetails) principal).getUsername();
+        } else {
+            clientUsername = principal.toString();
+        }
+
+        SortedSet<Meet> meets = new TreeSet<>(meetRep.findAllByClient(userRep.findByUsername(clientUsername)));
+
+        model.put("meets", meets);
+        return "pages/clientRecordList";
+    }
+
+    @PostMapping("/clientRecordList")
+    public String clientDayRecordList(Map<String, Object> model) {
+        SortedSet<Meet> meets = new TreeSet<>(meetRep.findAll());
+
+        model.put("meets", meets);
+        return "pages/clientRecordList";
+    }
+
+    @GetMapping("/mastersRecordList")
+    public String mastersRecordList(Map<String, Object> model) {
+        Day day = dayRep.findByDateString(LocalDate.now().toString());
+
+        if (day == null) {
+            day = dayRep.save(new Day(LocalDate.now().toString()));
+        }
+
+        SortedSet<Meet> meets = new TreeSet<>(meetRep.findAllByDay(day));
+
+        model.put("day", day);
+        model.put("meets", meets);
+        return "pages/mastersRecordList";
+    }
+
+    @PostMapping("/mastersRecordList")
+    public String mastersDayRecordList(@RequestParam String date,
+                                       Map<String, Object> model) {
+        Day day = dayRep.findByDateString(date);
+
+        if (day == null) {
+            day = dayRep.save(new Day(date));
+        }
+
+        SortedSet<Meet> meets = new TreeSet<>(meetRep.findAllByDay(day));
+
+
+        model.put("meets", meets);
+        model.put("day", day);
+        return "pages/mastersRecordList";
     }
 
     @GetMapping("/recorder")
@@ -82,6 +141,7 @@ public class MainController {
             meetEndTime = day.addOccupationAndReturnEndTime(Utils.getTransHour(hour, minute),
                     Utils.getServiceTime(mainService, dopService));
             newMeet.setEndMeet(meetEndTime);
+            newMeet.setServicesList(Utils.parseServicesList(mainService, dopService));
             meetRep.save(newMeet);
             day.addOneMeet(newMeet);
             day.setMaster(master);
