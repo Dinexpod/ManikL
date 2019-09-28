@@ -1,35 +1,28 @@
-<!DOCTYPE HTML>
-<html lang="uk">
+<#import "../parts/common.ftl" as c>
 
-<head>
-    <title>Registration page</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" href="/static/style/css/style.css"/>
-</head>
+<#assign head>
+    <head>
+        <title>Registration page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link rel="stylesheet" href="/static/style/css/style.css"/>
+    </head>
+</#assign>
 
-<body>
-<div class="top">
-    <span class="left"><a href="#"><strong  onclick="history.back()">назад</strong></a></span>
-    <span class="right"><a href="/"><strong>На головну</strong></a></span>
-    <div class="clr"></div>
-</div>
+<@c.page head=head>
+    <div id="login-form">
+        <h1>Реєстрація</h1>
 
-<div id="login-form">
-    <h1>Реєстрація</h1>
+        <#if message??>${message}</#if>
 
-    <#if message??>${message}</#if>
-
-    <fieldset>
-        <form action="/registration" method="POST">
-            <label><input type="text" name="username" placeholder="Юзернейм" max="15" required/> </label>
-            <label><input type="password" name="password" placeholder="Пароль" min="10" required/> </label>
-            <label><input type="text" name="sex" placeholder="Стать" required/></label>
-            <label><input type="text" name="age" placeholder="Вік (років)" required/></label>
-            <label><input type="hidden" name="_csrf" value="${_csrf.token}"/></label>
-            <input type="submit" value="Зареєструватись"/>
-        </form>
-    </fieldset>
-</div>
-</body>
-
-</html>
+        <fieldset>
+            <form action="/registration" method="POST">
+                <label><input type="text" name="username" placeholder="Юзернейм" max="15" required/> </label>
+                <label><input type="password" name="password" placeholder="Пароль" min="10" required/> </label>
+                <label><input type="text" name="sex" placeholder="Стать" required/></label>
+                <label><input type="text" name="age" placeholder="Вік (років)" required/></label>
+                <label><input type="hidden" name="_csrf" value="${_csrf.token}"/></label>
+                <input type="submit" value="Зареєструватись"/>
+            </form>
+        </fieldset>
+    </div>
+</@c.page>
