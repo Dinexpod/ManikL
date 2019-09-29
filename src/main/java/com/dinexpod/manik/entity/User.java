@@ -42,6 +42,10 @@ public class User {
     private String password;
     private Boolean active;
 
+    public boolean isAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
+
     @ElementCollection(targetClass = Role.class, fetch = FetchType.LAZY)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)

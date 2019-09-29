@@ -63,4 +63,25 @@ public class UserController {
 
         return "redirect:users";
     }
+
+    @GetMapping("/user")
+    public String users(Map<String, Object> model) {
+        Iterable<User> users = userRep.findAll();
+        model.put("users", users);
+        return "pages/user";
+    }
+
+    @PostMapping("/user")
+    public String add(@RequestParam String username,
+                      @RequestParam String sex,
+                      @RequestParam Integer age,
+                      Map<String, Object> model) {
+        User user = new User(username, age, sex);
+        userRep.save(user);
+
+        Iterable<User> users = userRep.findAll();
+        model.put("users", users);
+
+        return "pages/user";
+    }
 }

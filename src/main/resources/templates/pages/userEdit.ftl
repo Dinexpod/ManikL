@@ -2,9 +2,10 @@
 
 <#assign head>
     <head>
-        <title>User editor</title>
+        <title>Редактор пользователей</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <link rel="stylesheet" href="/static/style/css/table.css"/>
+        <link rel="stylesheet" href="/static/style/css/style.css"/>
     </head>
 </#assign>
 
