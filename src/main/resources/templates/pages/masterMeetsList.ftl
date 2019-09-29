@@ -10,7 +10,7 @@
 </#assign>
 
 <@c.page head=head>
-    <form action="/mastersRecordList" method="POST">
+    <form action="/masterMeetsList" method="POST">
         <label><input type="text" name="date" placeholder="Дата (2019-09-07)"/></label>
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <button type="submit">Показать!</button>

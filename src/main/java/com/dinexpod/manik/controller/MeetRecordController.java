@@ -8,6 +8,7 @@ import com.dinexpod.manik.entity.User;
 import com.dinexpod.manik.repos.DayRep;
 import com.dinexpod.manik.repos.MeetRep;
 import com.dinexpod.manik.repos.UserRep;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -35,8 +36,8 @@ public class MeetRecordController {
         this.meetRep = meetRep;
     }
 
-    @GetMapping("/clientRecordList")
-    public String clientRecordList(Map<String, Object> model) {
+    @GetMapping("/clientMeetsList")
+    public String clientMeetsList(Map<String, Object> model) {
         String clientUsername;
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -49,19 +50,20 @@ public class MeetRecordController {
         SortedSet<Meet> meets = new TreeSet<>(meetRep.findAllByClient(userRep.findByUsername(clientUsername)));
 
         model.put("meets", meets);
-        return "pages/clientRecordList";
+        return "pages/clientMeetsList";
     }
 
-    @PostMapping("/clientRecordList")
+    @PostMapping("/clientMeetsList")
     public String clientDayRecordList(Map<String, Object> model) {
         SortedSet<Meet> meets = new TreeSet<>(meetRep.findAll());
 
         model.put("meets", meets);
-        return "pages/clientRecordList";
+        return "pages/clientMeetsList";
     }
 
-    @GetMapping("/mastersRecordList")
-    public String mastersRecordList(Map<String, Object> model) {
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @GetMapping("/masterMeetsList")
+    public String masterMeetsList(Map<String, Object> model) {
         Day day = dayRep.findByDateString(LocalDate.now().toString());
 
         if (day == null) {
@@ -72,11 +74,12 @@ public class MeetRecordController {
 
         model.put("day", day);
         model.put("meets", meets);
-        return "pages/mastersRecordList";
+        return "pages/masterMeetsList";
     }
 
-    @PostMapping("/mastersRecordList")
-    public String mastersDayRecordList(@RequestParam String date,
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping("/masterMeetsList")
+    public String masterDayRecordList(@RequestParam String date,
                                        Map<String, Object> model) {
         Day day = dayRep.findByDateString(date);
 
@@ -88,7 +91,7 @@ public class MeetRecordController {
 
         model.put("meets", meets);
         model.put("day", day);
-        return "pages/mastersRecordList";
+        return "pages/masterMeetsList";
     }
 
     @GetMapping("/recorder")
