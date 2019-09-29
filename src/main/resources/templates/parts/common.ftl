@@ -16,6 +16,7 @@
         <span><a href="/recorder"><strong>Записаться</strong></a></span>
         <span><a href="/masterMeetsList"><strong>Мастеру</strong></a></span>
         <span><a href="/clientMeetsList"><strong>Мои записи</strong></a></span>
+        <span><a href="/userProfile"><strong>Профиль</strong></a></span>
         <span class="right"><a href="#"><strong>"${name}"</strong></a></span>
         <form action="/logout" method="POST">
             <span class="right">
