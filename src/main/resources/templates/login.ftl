@@ -3,7 +3,7 @@
 <#assign head>
     <head>
         <meta charset="UTF-8">
-        <title>Login page</title>
+        <title>Вход</title>
         <link rel="stylesheet" href="/static/style/css/style.css"/>
     </head>
 </#assign>
