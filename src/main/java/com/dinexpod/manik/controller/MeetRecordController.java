@@ -104,7 +104,9 @@ public class MeetRecordController {
 
     @PostMapping("/recorder")
     public String addDays(@RequestParam String masterUsername,
-                          @RequestParam String date,
+                          @RequestParam String yearNum,
+                          @RequestParam String monthNum,
+                          @RequestParam String dayNum,
                           @RequestParam Integer hour,
                           @RequestParam Integer minute,
                           @RequestParam String mainService,
@@ -114,6 +116,7 @@ public class MeetRecordController {
         String meetEndTime = "";
         User master = userRep.findByUsername(masterUsername);
         String clientUsername;
+        String date = yearNum + "-" + monthNum + "-" + dayNum;
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (principal instanceof UserDetails) {
