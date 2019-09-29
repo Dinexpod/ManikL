@@ -11,11 +11,11 @@
         <span><a href="/login"><strong>Вход</strong></a></span>
 
         <span><a href="/registration"><strong>Регистрация</strong></a></span>
-        <span><a href="/users/user"><strong>Пользователи</strong></a></span>
+        <span><a href="/users/userList"><strong>Пользователи</strong></a></span>
         <span><a href="/users"><strong>Редактор пользователей</strong></a></span>
         <span><a href="/recorder"><strong>Записаться</strong></a></span>
-        <span><a href="/mastersRecordList"><strong>Мастеру</strong></a></span>
-        <span><a href="/clientRecordList"><strong>Мои записи</strong></a></span>
+        <span><a href="/masterMeetsList"><strong>Мастеру</strong></a></span>
+        <span><a href="/clientMeetsList"><strong>Мои записи</strong></a></span>
         <span class="right"><a href="#"><strong>"${name}"</strong></a></span>
         <form action="/logout" method="POST">
             <span class="right">

@@ -26,10 +26,10 @@ public class UserController {
     private UserRep userRep;
 
     @GetMapping
-    public String userList(Model model) {
+    public String userEditList(Model model) {
         model.addAttribute("users", userRep.findAll());
 
-        return "pages/userList";
+        return "pages/userEditList";
     }
 
     @GetMapping("{user}")
@@ -64,14 +64,14 @@ public class UserController {
         return "redirect:users";
     }
 
-    @GetMapping("/user")
+    @GetMapping("/userList")
     public String users(Map<String, Object> model) {
         Iterable<User> users = userRep.findAll();
         model.put("users", users);
-        return "pages/user";
+        return "pages/userList";
     }
 
-    @PostMapping("/user")
+    @PostMapping("/userList")
     public String add(@RequestParam String username,
                       @RequestParam String sex,
                       @RequestParam Integer age,
@@ -82,6 +82,6 @@ public class UserController {
         Iterable<User> users = userRep.findAll();
         model.put("users", users);
 
-        return "pages/user";
+        return "pages/userList";
     }
 }
