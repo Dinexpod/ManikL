@@ -6,7 +6,7 @@ echo 'Copy files...'
 
 scp -i ~/.ssh/id_rsa \
   target/manikL-1.0-SNAPSHOT.jar \
-  anatolii@192.198.1.103:/home/anatolii/
+  anatolii@192.168.1.103:/home/anatolii/
 
 echo 'Restart server...'
 
