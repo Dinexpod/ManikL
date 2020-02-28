@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
 @RequestMapping("/users")
 @PreAuthorize("hasAuthority('ADMIN')")
 public class UserController {
+
     @Autowired
     private UserRep userRep;
 

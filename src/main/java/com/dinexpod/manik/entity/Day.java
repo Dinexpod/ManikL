@@ -32,6 +32,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Day implements Comparable<Day> {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

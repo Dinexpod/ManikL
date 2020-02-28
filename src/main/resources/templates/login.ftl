@@ -19,7 +19,7 @@
                 <input type="submit" value="Ввійти"/>
             </form>
 
-            <a href="/registration"><input type="button" value="Не зареєстровані? Зареєструйтесь!"/></a>
+            <a href="/registration"><input type="button" value="Не зарегистрированы? Зарегистрируйтесь!"/></a>
         </fieldset>
     </div>
 </@c.page>

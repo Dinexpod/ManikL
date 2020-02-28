@@ -28,16 +28,17 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotBlank(message = "Username cannot be empty")
     private String username;
+
     private String firstName;
     private String lastName;
     private String middleName;
-
     private Integer age;
     private String sex;
     private LocalDate birthday;
@@ -51,7 +52,7 @@ public class User implements UserDetails {
         return roles.contains(Role.ADMIN);
     }
 
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.LAZY)
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     @EqualsAndHashCode.Exclude
