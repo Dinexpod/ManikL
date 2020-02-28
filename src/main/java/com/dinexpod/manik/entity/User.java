@@ -52,7 +52,7 @@ public class User implements UserDetails {
         return roles.contains(Role.ADMIN);
     }
 
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.LAZY)
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     @EqualsAndHashCode.Exclude

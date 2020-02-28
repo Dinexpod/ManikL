@@ -23,9 +23,8 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String addUser(User user, Map<String, Object> model) {
-        boolean isUserExists = !(userService.addUser(user));
 
-        if (isUserExists) {
+        if (!(userService.addUser(user))) {
             model.put("message", "Такой пользователь не существует!");
             return "pages/registration";
         }
