@@ -12,7 +12,7 @@ echo 'Restart server...'
 
 ssh -i ~/.ssh/id_rsa anatolii@192.168.1.103 << EOF
 
-pgrep java | xargs kill -9
+pgrep -f manikL-1.0-SNAPSHOT.jar | xargs kill -9
 nohup java -jar manikL-1.0-SNAPSHOT.jar > log.txt &
 
 EOF
